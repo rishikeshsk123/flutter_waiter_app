@@ -3,10 +3,9 @@ import 'package:injectable/injectable.dart';
 
 import 'injectable.config.dart'; 
 
-final GetIt getIt = GetIt.instance;
+final getIt = GetIt.instance;
 
 @InjectableInit()
-Future<void> configureDependencies() async{
+Future<void> configureInjection() async {
   await getIt.init(environment: Environment.prod);
 }
-

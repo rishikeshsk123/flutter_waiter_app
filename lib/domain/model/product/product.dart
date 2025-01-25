@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'product.freezed.dart';
 part 'product.g.dart';
 
-
 @freezed
 class Product with _$Product {
   const factory Product({
@@ -14,9 +13,9 @@ class Product with _$Product {
     required String img,
     required String category,
     required bool asp,
-    @Default(0.0) double defaultPrice
-    
+    required double defaultPrice,
   }) = _Product;
 
-  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
+  factory Product.fromJson(Map<String, dynamic> json) =>
+      _$ProductFromJson(json);
 }

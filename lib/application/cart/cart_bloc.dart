@@ -70,6 +70,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   void _mapUpdateQuantityToState(
       _UpdateQuantity event, Emitter<CartState> emit) {
     final updatedItems = state.items.map((item) {
+      print(event.productId);
       if (item.productId == event.productId) {
         return item.copyWith(quantity: event.quantity);
       }

@@ -72,7 +72,7 @@ class QuantityFieldWidget extends StatelessWidget {
               if (newQuantity == 0) {
                 context
                     .read<CartBloc>()
-                    .add(CartEvent.removeItem(cartItem.name));
+                    .add(CartEvent.removeItem(cartItem.productId));
               } else {
                 if (cartItem.quantity == 0) {
                   context.read<CartBloc>().add(
@@ -83,7 +83,7 @@ class QuantityFieldWidget extends StatelessWidget {
                 }
                 context
                     .read<CartBloc>()
-                    .add(CartEvent.updateQuantity(cartItem.name, newQuantity));
+                    .add(CartEvent.updateQuantity(cartItem.productId, newQuantity));
               }
 
               if (textController.text.isEmpty) {

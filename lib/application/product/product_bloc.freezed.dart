@@ -21,7 +21,7 @@ mixin _$ProductEvent {
     required TResult Function() fetchProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(String category) filterByCategory,
-    required TResult Function(String name, double price) updatePriceForASP,
+    required TResult Function(String id, double price) updatePriceForASP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ProductEvent {
     TResult? Function()? fetchProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(String category)? filterByCategory,
-    TResult? Function(String name, double price)? updatePriceForASP,
+    TResult? Function(String id, double price)? updatePriceForASP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ProductEvent {
     TResult Function()? fetchProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(String category)? filterByCategory,
-    TResult Function(String name, double price)? updatePriceForASP,
+    TResult Function(String id, double price)? updatePriceForASP,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$FetchProductsImpl implements _FetchProducts {
     required TResult Function() fetchProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(String category) filterByCategory,
-    required TResult Function(String name, double price) updatePriceForASP,
+    required TResult Function(String id, double price) updatePriceForASP,
   }) {
     return fetchProducts();
   }
@@ -144,7 +144,7 @@ class _$FetchProductsImpl implements _FetchProducts {
     TResult? Function()? fetchProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(String category)? filterByCategory,
-    TResult? Function(String name, double price)? updatePriceForASP,
+    TResult? Function(String id, double price)? updatePriceForASP,
   }) {
     return fetchProducts?.call();
   }
@@ -155,7 +155,7 @@ class _$FetchProductsImpl implements _FetchProducts {
     TResult Function()? fetchProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(String category)? filterByCategory,
-    TResult Function(String name, double price)? updatePriceForASP,
+    TResult Function(String id, double price)? updatePriceForASP,
     required TResult orElse(),
   }) {
     if (fetchProducts != null) {
@@ -278,7 +278,7 @@ class _$SearchProductsImpl implements _SearchProducts {
     required TResult Function() fetchProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(String category) filterByCategory,
-    required TResult Function(String name, double price) updatePriceForASP,
+    required TResult Function(String id, double price) updatePriceForASP,
   }) {
     return searchProducts(query);
   }
@@ -289,7 +289,7 @@ class _$SearchProductsImpl implements _SearchProducts {
     TResult? Function()? fetchProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(String category)? filterByCategory,
-    TResult? Function(String name, double price)? updatePriceForASP,
+    TResult? Function(String id, double price)? updatePriceForASP,
   }) {
     return searchProducts?.call(query);
   }
@@ -300,7 +300,7 @@ class _$SearchProductsImpl implements _SearchProducts {
     TResult Function()? fetchProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(String category)? filterByCategory,
-    TResult Function(String name, double price)? updatePriceForASP,
+    TResult Function(String id, double price)? updatePriceForASP,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -432,7 +432,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     required TResult Function() fetchProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(String category) filterByCategory,
-    required TResult Function(String name, double price) updatePriceForASP,
+    required TResult Function(String id, double price) updatePriceForASP,
   }) {
     return filterByCategory(category);
   }
@@ -443,7 +443,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult? Function()? fetchProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(String category)? filterByCategory,
-    TResult? Function(String name, double price)? updatePriceForASP,
+    TResult? Function(String id, double price)? updatePriceForASP,
   }) {
     return filterByCategory?.call(category);
   }
@@ -454,7 +454,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult Function()? fetchProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(String category)? filterByCategory,
-    TResult Function(String name, double price)? updatePriceForASP,
+    TResult Function(String id, double price)? updatePriceForASP,
     required TResult orElse(),
   }) {
     if (filterByCategory != null) {
@@ -520,7 +520,7 @@ abstract class _$$UpdatePriceForASPImplCopyWith<$Res> {
           $Res Function(_$UpdatePriceForASPImpl) then) =
       __$$UpdatePriceForASPImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String name, double price});
+  $Res call({String id, double price});
 }
 
 /// @nodoc
@@ -536,13 +536,13 @@ class __$$UpdatePriceForASPImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? id = null,
     Object? price = null,
   }) {
     return _then(_$UpdatePriceForASPImpl(
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       null == price
           ? _value.price
@@ -555,16 +555,16 @@ class __$$UpdatePriceForASPImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
-  const _$UpdatePriceForASPImpl(this.name, this.price);
+  const _$UpdatePriceForASPImpl(this.id, this.price);
 
   @override
-  final String name;
+  final String id;
   @override
   final double price;
 
   @override
   String toString() {
-    return 'ProductEvent.updatePriceForASP(name: $name, price: $price)';
+    return 'ProductEvent.updatePriceForASP(id: $id, price: $price)';
   }
 
   @override
@@ -572,12 +572,12 @@ class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdatePriceForASPImpl &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.price, price) || other.price == price));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, price);
+  int get hashCode => Object.hash(runtimeType, id, price);
 
   /// Create a copy of ProductEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -594,9 +594,9 @@ class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
     required TResult Function() fetchProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(String category) filterByCategory,
-    required TResult Function(String name, double price) updatePriceForASP,
+    required TResult Function(String id, double price) updatePriceForASP,
   }) {
-    return updatePriceForASP(name, price);
+    return updatePriceForASP(id, price);
   }
 
   @override
@@ -605,9 +605,9 @@ class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
     TResult? Function()? fetchProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(String category)? filterByCategory,
-    TResult? Function(String name, double price)? updatePriceForASP,
+    TResult? Function(String id, double price)? updatePriceForASP,
   }) {
-    return updatePriceForASP?.call(name, price);
+    return updatePriceForASP?.call(id, price);
   }
 
   @override
@@ -616,11 +616,11 @@ class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
     TResult Function()? fetchProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(String category)? filterByCategory,
-    TResult Function(String name, double price)? updatePriceForASP,
+    TResult Function(String id, double price)? updatePriceForASP,
     required TResult orElse(),
   }) {
     if (updatePriceForASP != null) {
-      return updatePriceForASP(name, price);
+      return updatePriceForASP(id, price);
     }
     return orElse();
   }
@@ -664,10 +664,10 @@ class _$UpdatePriceForASPImpl implements _UpdatePriceForASP {
 }
 
 abstract class _UpdatePriceForASP implements ProductEvent {
-  const factory _UpdatePriceForASP(final String name, final double price) =
+  const factory _UpdatePriceForASP(final String id, final double price) =
       _$UpdatePriceForASPImpl;
 
-  String get name;
+  String get id;
   double get price;
 
   /// Create a copy of ProductEvent
@@ -681,9 +681,13 @@ abstract class _UpdatePriceForASP implements ProductEvent {
 mixin _$ProductState {
   List<Product> get products =>
       throw _privateConstructorUsedError; // A list of products
+  List<String> get categories =>
+      throw _privateConstructorUsedError; // A list of products
   List<Product> get filteredProducts =>
       throw _privateConstructorUsedError; // holds the search results
   int get quantity => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of ProductState
   /// with the given fields replaced by the non-null parameter values.
@@ -699,7 +703,12 @@ abstract class $ProductStateCopyWith<$Res> {
       _$ProductStateCopyWithImpl<$Res, ProductState>;
   @useResult
   $Res call(
-      {List<Product> products, List<Product> filteredProducts, int quantity});
+      {List<Product> products,
+      List<String> categories,
+      List<Product> filteredProducts,
+      int quantity,
+      bool isLoading,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -718,14 +727,21 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
   @override
   $Res call({
     Object? products = null,
+    Object? categories = null,
     Object? filteredProducts = null,
     Object? quantity = null,
+    Object? isLoading = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      categories: null == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       filteredProducts: null == filteredProducts
           ? _value.filteredProducts
           : filteredProducts // ignore: cast_nullable_to_non_nullable
@@ -734,6 +750,14 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -747,7 +771,12 @@ abstract class _$$ProductStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Product> products, List<Product> filteredProducts, int quantity});
+      {List<Product> products,
+      List<String> categories,
+      List<Product> filteredProducts,
+      int quantity,
+      bool isLoading,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -764,14 +793,21 @@ class __$$ProductStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? products = null,
+    Object? categories = null,
     Object? filteredProducts = null,
     Object? quantity = null,
+    Object? isLoading = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$ProductStateImpl(
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       filteredProducts: null == filteredProducts
           ? _value._filteredProducts
           : filteredProducts // ignore: cast_nullable_to_non_nullable
@@ -780,6 +816,14 @@ class __$$ProductStateImplCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -789,9 +833,13 @@ class __$$ProductStateImplCopyWithImpl<$Res>
 class _$ProductStateImpl implements _ProductState {
   const _$ProductStateImpl(
       {required final List<Product> products,
+      required final List<String> categories,
       required final List<Product> filteredProducts,
-      this.quantity = 1})
+      this.quantity = 1,
+      this.isLoading = false,
+      this.errorMessage = ''})
       : _products = products,
+        _categories = categories,
         _filteredProducts = filteredProducts;
 
   final List<Product> _products;
@@ -800,6 +848,16 @@ class _$ProductStateImpl implements _ProductState {
     if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_products);
+  }
+
+// A list of products
+  final List<String> _categories;
+// A list of products
+  @override
+  List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
   }
 
 // A list of products
@@ -817,10 +875,16 @@ class _$ProductStateImpl implements _ProductState {
   @override
   @JsonKey()
   final int quantity;
+  @override
+  @JsonKey()
+  final bool isLoading;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'ProductState(products: $products, filteredProducts: $filteredProducts, quantity: $quantity)';
+    return 'ProductState(products: $products, categories: $categories, filteredProducts: $filteredProducts, quantity: $quantity, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -830,17 +894,26 @@ class _$ProductStateImpl implements _ProductState {
             other is _$ProductStateImpl &&
             const DeepCollectionEquality().equals(other._products, _products) &&
             const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
+            const DeepCollectionEquality()
                 .equals(other._filteredProducts, _filteredProducts) &&
             (identical(other.quantity, quantity) ||
-                other.quantity == quantity));
+                other.quantity == quantity) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(_categories),
       const DeepCollectionEquality().hash(_filteredProducts),
-      quantity);
+      quantity,
+      isLoading,
+      errorMessage);
 
   /// Create a copy of ProductState
   /// with the given fields replaced by the non-null parameter values.
@@ -854,15 +927,24 @@ class _$ProductStateImpl implements _ProductState {
 abstract class _ProductState implements ProductState {
   const factory _ProductState(
       {required final List<Product> products,
+      required final List<String> categories,
       required final List<Product> filteredProducts,
-      final int quantity}) = _$ProductStateImpl;
+      final int quantity,
+      final bool isLoading,
+      final String errorMessage}) = _$ProductStateImpl;
 
   @override
   List<Product> get products; // A list of products
   @override
+  List<String> get categories; // A list of products
+  @override
   List<Product> get filteredProducts; // holds the search results
   @override
   int get quantity;
+  @override
+  bool get isLoading;
+  @override
+  String get errorMessage;
 
   /// Create a copy of ProductState
   /// with the given fields replaced by the non-null parameter values.

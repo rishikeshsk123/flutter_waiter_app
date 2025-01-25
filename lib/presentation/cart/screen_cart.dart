@@ -58,7 +58,7 @@ class ScreenCart extends StatelessWidget {
                       subtitle: BlocBuilder<ProductBloc, ProductState>(
                         builder: (context, productState) {
                           final productItem = productState.products.firstWhere(
-                              (prod) => prod.name == cartItem.name,
+                              (prod) => prod.id == cartItem.productId,
                               orElse: () => const Product(
                                   id: "",
                                   name: "Unknown Product",
@@ -66,10 +66,10 @@ class ScreenCart extends StatelessWidget {
                                   description: "Product not found",
                                   img: "",
                                   category: "",
-                                  asp: false)
+                                  asp: false, defaultPrice: 0.0,)
                                   );
 
-                          if (productItem.name != cartItem.name) {
+                          if (productItem.id != cartItem.productId) {
                             return const Text("Product not found");
                           }
 
@@ -92,9 +92,9 @@ class ScreenCart extends StatelessWidget {
 
                               context.read<CartBloc>().add(
                                     quantity == 0
-                                        ? CartEvent.removeItem(cartItem.name)
+                                        ? CartEvent.removeItem(cartItem.productId)
                                         : CartEvent.updateQuantity(
-                                            cartItem.name, quantity),
+                                            cartItem.productId, quantity),
                                   );
                             },
                           ),
@@ -104,7 +104,7 @@ class ScreenCart extends StatelessWidget {
                             onPressed: () {
                               context.read<CartBloc>().add(
                                     CartEvent.updateQuantity(
-                                        cartItem.name, cartItem.quantity + 1),
+                                        cartItem.productId, cartItem.quantity + 1),
                                   );
                             },
                           ),

@@ -40,13 +40,13 @@ class ProductTileWidget extends StatelessWidget {
                     if (newPrice != null && newPrice > 0) {
                       return context.read<ProductBloc>().add(
                             ProductEvent.updatePriceForASP(
-                                product.name, newPrice),
+                                product.id, newPrice),
                           );
                     }
                     else {
                       return context.read<ProductBloc>().add(
                             ProductEvent.updatePriceForASP(
-                                product.name, product.defaultPrice),
+                                product.id, product.defaultPrice),
                           );
                     }
                   }),

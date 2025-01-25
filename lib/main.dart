@@ -4,13 +4,13 @@ import 'package:restaurant_app/application/auth/auth_bloc.dart';
 import 'package:restaurant_app/application/cart/cart_bloc.dart';
 import 'package:restaurant_app/application/product/product_bloc.dart';
 import 'package:restaurant_app/domain/core/di/injectable.dart';
-import 'package:restaurant_app/presentation/dine_in/screen_dine_in.dart';
+import 'package:restaurant_app/infrastructure/product/product_repository_impl.dart';
 import 'package:restaurant_app/presentation/splashScreen/splash.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies();
+  await configureInjection();
 
   final storage = FlutterSecureStorage();
   final token = await storage.read(key: 'auth_token');
@@ -45,20 +45,14 @@ class MyApp extends StatelessWidget {
             userToken: userToken ?? '',
           ),
         ),
-        BlocProvider<ProductBloc>(
-          create: (context) {
-            final bloc = ProductBloc();
-            bloc.add(ProductEvent.fetchProducts());
-            return bloc;
-          },
-        ),
+        BlocProvider(create: (ctx) => getIt<ProductBloc>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: isLoggedIn ? const ScreenDineIn() : const SplashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

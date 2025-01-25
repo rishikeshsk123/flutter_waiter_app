@@ -4,6 +4,7 @@ import 'package:restaurant_app/application/auth/auth_bloc.dart';
 import 'package:restaurant_app/core/constant.dart';
 import 'package:restaurant_app/presentation/auth/screen_registration.dart';
 import 'package:restaurant_app/presentation/dine_in/screen_dine_in.dart';
+import 'package:restaurant_app/presentation/main_page/screen_main_page.dart';
 
 class ScreenLoginWidget extends StatelessWidget {
   const ScreenLoginWidget({super.key});
@@ -29,7 +30,7 @@ class ScreenLoginWidget extends StatelessWidget {
             authenticated: (user) {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (ctx) => const ScreenDineIn()),
+                MaterialPageRoute(builder: (ctx) => ScreenMainPage()),
               );
             },
             unauthenticated: () {},

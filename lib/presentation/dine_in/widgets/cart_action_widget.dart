@@ -15,7 +15,7 @@ class CartActionWidget extends StatelessWidget {
 
   void _addItemQuantity(BuildContext ctx) {
     final currentItem = ctx.read<CartBloc>().state.items.firstWhere(
-          (item) => item.name == product.name,
+          (item) => item.productId == product.id,
           orElse: () => CartItem(
             name: product.name,
             price: product.price,
@@ -43,16 +43,18 @@ class CartActionWidget extends StatelessWidget {
               product,
             ),
           );
-    }
+    }else{
+
 
     ctx.read<CartBloc>().add(
-          CartEvent.updateQuantity(product.name, currentItem.quantity + 1),
+          CartEvent.updateQuantity(product.id, currentItem.quantity + 1),
         );
+    }
   }
 
   void _removeItemQuantity(BuildContext ctx) {
     final currentItem = ctx.read<CartBloc>().state.items.firstWhere(
-          (item) => item.name == product.name,
+          (item) => item.productId == product.id,
           orElse: () => CartItem(
             name: product.name,
             price: product.price,
@@ -76,12 +78,12 @@ class CartActionWidget extends StatelessWidget {
     if (currentItem.quantity > 1) {
       // Reduce quantity by 1
       ctx.read<CartBloc>().add(
-            CartEvent.updateQuantity(product.name, currentItem.quantity - 1),
+            CartEvent.updateQuantity(product.id, currentItem.quantity - 1),
           );
     } else {
       // Remove the item from the cart if quantity is 1
       ctx.read<CartBloc>().add(
-            CartEvent.removeItem(product.name),
+            CartEvent.removeItem(product.id),
           );
     }
   }

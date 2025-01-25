@@ -15,7 +15,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       img: json['img'] as String,
       category: json['category'] as String,
       asp: json['asp'] as bool,
-      defaultPrice: (json['defaultPrice'] as num?)?.toDouble() ?? 0.0,
+      defaultPrice: (json['defaultPrice'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>

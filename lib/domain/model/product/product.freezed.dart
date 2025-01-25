@@ -203,7 +203,7 @@ class _$ProductImpl implements _Product {
       required this.img,
       required this.category,
       required this.asp,
-      this.defaultPrice = 0.0});
+      required this.defaultPrice});
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductImplFromJson(json);
@@ -223,7 +223,6 @@ class _$ProductImpl implements _Product {
   @override
   final bool asp;
   @override
-  @JsonKey()
   final double defaultPrice;
 
   @override
@@ -279,7 +278,7 @@ abstract class _Product implements Product {
       required final String img,
       required final String category,
       required final bool asp,
-      final double defaultPrice}) = _$ProductImpl;
+      required final double defaultPrice}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
