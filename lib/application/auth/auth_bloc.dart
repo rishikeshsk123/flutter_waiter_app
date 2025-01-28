@@ -13,7 +13,42 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
 
   AuthBloc(this._authRepository) : super(const AuthState.initial()) {
-    //   on<LoginEvent>(_onLoginEvent);
+    on<AuthEvent>((event, emit) async {
+      await event.map(
+        started: (_) async {
+          emit(const AuthState.loading());
+          try {
+            final user = await _authRepository.checkAuthStatus();
+            if (user != null) {
+              emit(AuthState.authenticated(user));
+            } else {
+              emit(const AuthState.unauthenticated());
+            }
+          } catch (_) {
+            emit(const AuthState.unauthenticated());
+          }
+        },
+        login: (event) async {
+          emit(const AuthState.loading());
+          try {
+            final user = await _authRepository.login(event.email, event.password);
+            emit(AuthState.authenticated(user));
+          } catch (e) {
+            emit(AuthState.error(e.toString()));
+          }
+        },
+        logout: (_) async {
+          emit(const AuthState.loading());
+          await _authRepository.logout();
+          emit(const AuthState.unauthenticated());
+        },
+      );
+    });
+  }
+}
+
+
+//   on<LoginEvent>(_onLoginEvent);
     //   on<SignupEvent>(_onSignupEvent);
     //   on<LogoutEvent>(_onLogoutEvent);
     //   on<CheckAuthStatus>(_onCheckAuthStatusEvent);
@@ -57,37 +92,3 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //   } else {
     //     emit(const AuthState.unauthenticated());
     //   }
-
-    on<AuthEvent>((event, emit) async {
-      await event.map(
-        started: (e) async{
-          emit(const AuthState.loading());
-          try {
-            final user = await _authRepository.checkAuthStatus();
-            if (user != null) {
-              emit(AuthState.authenticated(user));
-            } else {
-              emit(const AuthState.unauthenticated());
-            }
-          } catch (e) {
-            emit(const AuthState.unauthenticated());
-          }
-        },
-        login: (e) async{
-          emit(const AuthState.loading());
-          try {
-            final user = await _authRepository.login(e.email,  e.password);
-            emit(AuthState.authenticated(user));
-          } catch (error) {
-            emit(AuthState.error(error.toString()));
-          }
-        },
-        logout: (e) async{
-          emit(const AuthState.loading());
-          await _authRepository.logout();
-          emit(const AuthState.unauthenticated());
-        },
-      );
-    });
-  }
-}

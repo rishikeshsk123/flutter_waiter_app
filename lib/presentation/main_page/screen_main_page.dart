@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_app/presentation/delivery/screen_delivery.dart';
 import 'package:restaurant_app/presentation/dine_in/screen_dine_in.dart';
 import 'package:restaurant_app/presentation/main_page/widgets/bottom_nav.dart';
-import 'package:restaurant_app/presentation/rooms/screen_rooms.dart';
+import 'package:restaurant_app/presentation/profile/screen_profile.dart';
 import 'package:restaurant_app/presentation/takeaway/screen_takeaway.dart';
 
 class ScreenMainPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class ScreenMainPage extends StatelessWidget {
     ScreenDineIn(),
     ScreenTakeaway(),
     ScreenDelivery(),
-    ScreenRooms(),
+    ScreenProfile(),
   ];
 
   @override

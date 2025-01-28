@@ -19,8 +19,8 @@ class BottomNavigationWidget extends StatelessWidget {
           unselectedItemColor: kGreyColor,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.dining_outlined),
-              label: 'Dine In',
+              icon: Icon(Icons.home_filled),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag_outlined),
@@ -31,8 +31,8 @@ class BottomNavigationWidget extends StatelessWidget {
               label: 'Delivery',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.door_back_door_outlined),
-              label: 'Rooms',
+              icon: Icon(Icons.person),
+              label: 'Profile',
             ),
           ],
         );
