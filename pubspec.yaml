@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
-  device_info_plus: ^11.2.0
+  device_info_plus: ^11.2.2
   dio: ^5.0.0
   flutter:
     sdk: flutter

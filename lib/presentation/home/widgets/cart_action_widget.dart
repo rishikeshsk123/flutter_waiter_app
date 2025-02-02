@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_app/application/cart/cart_bloc.dart';
 import 'package:restaurant_app/domain/model/cart/cart_item.dart';
 import 'package:restaurant_app/domain/model/product/product.dart';
-import 'package:restaurant_app/presentation/dine_in/widgets/quantity_field_widget.dart';
+import 'package:restaurant_app/presentation/home/widgets/quantity_field_widget.dart';
 
 class CartActionWidget extends StatelessWidget {
   const CartActionWidget({

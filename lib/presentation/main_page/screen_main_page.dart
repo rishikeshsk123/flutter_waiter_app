@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/presentation/delivery/screen_delivery.dart';
-import 'package:restaurant_app/presentation/dine_in/screen_dine_in.dart';
+import 'package:restaurant_app/presentation/home/screen_home.dart';
 import 'package:restaurant_app/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:restaurant_app/presentation/profile/screen_profile.dart';
-import 'package:restaurant_app/presentation/takeaway/screen_takeaway.dart';
 
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key});
 
-  final _pages = [
-    ScreenDineIn(),
-    ScreenTakeaway(),
-    ScreenDelivery(),
+  final _pages = const [
+    ScreenHome(),
     ScreenProfile(),
   ];
 

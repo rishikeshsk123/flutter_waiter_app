@@ -5,7 +5,6 @@ import 'package:restaurant_app/application/auth/auth_bloc.dart';
 import 'package:restaurant_app/core/colors/colors.dart';
 import 'package:restaurant_app/core/constant.dart';
 import 'package:restaurant_app/presentation/auth/screen_login.dart';
-import 'package:restaurant_app/presentation/splashScreen/splash.dart';
 
 class ScreenProfile extends StatelessWidget {
   const ScreenProfile({super.key});
@@ -68,6 +67,7 @@ class ScreenProfile extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   context.read<AuthBloc>().add(const AuthEvent.logout());
+                  
                 },
                 child: const Text('Logout'),
               ),

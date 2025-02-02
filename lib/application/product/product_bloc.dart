@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:restaurant_app/api/product.dart';
 import 'package:restaurant_app/domain/model/product/product.dart';
 import 'package:restaurant_app/domain/products/product_repository.dart';
 

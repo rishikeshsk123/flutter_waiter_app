@@ -22,14 +22,14 @@ class BottomNavigationWidget extends StatelessWidget {
               icon: Icon(Icons.home_filled),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_outlined),
-              label: 'Takeaway',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.delivery_dining_outlined),
-              label: 'Delivery',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.shopping_bag_outlined),
+            //   label: 'Takeaway',
+            // ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.delivery_dining_outlined),
+            //   label: 'Delivery',
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',

@@ -70,7 +70,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   void _mapUpdateQuantityToState(
       _UpdateQuantity event, Emitter<CartState> emit) {
     final updatedItems = state.items.map((item) {
-      print(event.productId);
+     
       if (item.productId == event.productId) {
         return item.copyWith(quantity: event.quantity);
       }
@@ -85,14 +85,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     emit(state.copyWith(items: [], totalAmount: 0.0, serviceCharge: 0.0));
   }
 
-  void _mapUpdateOrderType(_UpdateOrderType event, Emitter<CartState> emit) {
+  void _mapUpdateOrderType(_UpdateOrderType event, Emitter<CartState> emit) async{
     final serviceCharge =
-        _calculateServiceCharge(event.orderType, state.totalAmount);
+        await _calculateServiceCharge(event.orderType, state.totalAmount);
     emit(state.copyWith(
         orderType: event.orderType, serviceCharge: serviceCharge));
   }
 
-  double _calculateServiceCharge(String orderType, double totalAmount) {
+  Future<double> _calculateServiceCharge(String orderType, double totalAmount) async{
     switch (orderType) {
       case "Dine In":
         return totalAmount * 0;
@@ -109,6 +109,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   double _calculateTotal(List<CartItem> items) {
     return items.fold(
-        0.0, (total, item) => total + (item.price ?? 0) * item.quantity);
+        0.0, (total, item) => total + (item.price ) * item.quantity);
   }
 }
